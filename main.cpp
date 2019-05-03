@@ -20,7 +20,7 @@ void freeArray(int*);
 
 int menu2();
 
-//vector<string> insertar(vector<string> x, int num);
+//void insertar(vector<string> x);
 
 int main(){
 	int opcion = 0;
@@ -71,7 +71,7 @@ int main(){
 				cout<< "El número que ha ingresado no es válido."<<endl;
 				opcion = menu();
 			}
-			//vector <string> x;	
+			vector <int> x;	
 			if(opcion2 == 1){
 				cout<<"-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-"<<endl;
 				//x = insertar(x);
@@ -172,7 +172,7 @@ int menu2(){
         cout<<endl;
         return opcion;
 }
-/*vector<string> insertar(vector<string> x,int num){
+/*void insertar(vector<string> x){
 	string codigo,nombre,ainicio,afinal,pais,continente;
 	cout<<"Ingrese el código: ";
 	cin >> codigo;
@@ -189,5 +189,5 @@ int menu2(){
 	stringstream cad;
 	cad<<codigo<<';'<<nombre<<';'<<ainicio<<';'<<afinal<<';'<<pais<<';'<<continente;
 	x.push_back(cad);
-	return x;
+	//return x;
 }*/
