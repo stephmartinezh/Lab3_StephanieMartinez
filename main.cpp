@@ -2,10 +2,18 @@
 using std::cout;
 using std::cin;
 using std::endl;
+#include <string>
+using std::string;
 
 int menu();
 
 int mcd(int, int);
+
+int* llenarPrimos(int*);
+
+void calculadoraPrimos(int*);
+
+void freeArray(int*);
 
 int main(){
 	int opcion = 0;
@@ -40,6 +48,15 @@ int main(){
 			cout<<"El máximo común divisor es: "<<resultado<<endl;
 			cout<<"------------------------------------"<<endl;
 		}
+		if(opcion == 2){
+			cout<<"------------------------------------"<<endl;
+			int* primos= new int[25];		
+			primos = llenarPrimos(primos);
+			calculadoraPrimos(primos);
+			freeArray(primos);
+			primos = NULL;		
+			cout<<"------------------------------------"<<endl;
+		}
 	}while(opcion != 4);
 	return 0;
 }
@@ -66,3 +83,60 @@ int mcd(int a, int b){
 		return mcd(a,b);
 	}
 }
+
+int* llenarPrimos(int* primos){
+	primos[0]=2;
+	primos[1]=3;
+	primos[2]=5;
+	primos[3]=7;
+	primos[4]=11;
+	primos[5]=13;
+	primos[6]=17;
+	primos[7]=19;
+	primos[8]=23;
+	primos[9]=29;
+	primos[10]=31;
+	primos[11]=37;
+	primos[12]=41;
+	primos[13]=43;
+	primos[14]=47;
+	primos[15]=53;
+	primos[16]=59;
+	primos[17]=61;
+	primos[18]=67;
+	primos[19]=71;
+	primos[20]=73;
+	primos[21]=79;
+	primos[22]=83;
+	primos[23]=89;
+	primos[24]=97;
+	return primos;
+}
+void calculadoraPrimos(int* primos){
+	int cont = 0, num, div;
+	string cadena= "";
+	cout<<"Ingrese el número: ";
+	cin>>num;
+	div = num;
+	cout<<num<< " = ";
+        for(int i = 0; i<25; i++){
+                while(div%primos[i]==0){
+			cont++;
+			div = div/primos[i];
+		}
+		if(cont != 0){
+			cout<<"("<<primos[i]<<"^"<<cont<<") * ";
+			cont = 0;
+		}
+		
+		//cont = 0;
+        }
+	cout<<cadena<<endl;
+}
+
+void freeArray(int* array){
+	if(array != NULL){
+		delete[] array;
+	}
+}
+
