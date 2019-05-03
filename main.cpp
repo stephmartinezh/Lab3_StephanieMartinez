@@ -4,6 +4,9 @@ using std::cin;
 using std::endl;
 #include <string>
 using std::string;
+#include <vector>
+#include <sstream>
+using std::stringstream;
 
 int menu();
 
@@ -14,6 +17,10 @@ int* llenarPrimos(int*);
 void calculadoraPrimos(int*);
 
 void freeArray(int*);
+
+int menu2();
+
+//vector<string> insertar(vector<string> x, int num);
 
 int main(){
 	int opcion = 0;
@@ -57,6 +64,21 @@ int main(){
 			primos = NULL;		
 			cout<<"------------------------------------"<<endl;
 		}
+		if(opcion == 3){
+			cout<<"------------------------------------"<<endl;
+			int opcion2 = menu2();
+			while(opcion<1 || opcion> 4){
+				cout<< "El número que ha ingresado no es válido."<<endl;
+				opcion = menu();
+			}
+			//vector <string> x;	
+			if(opcion2 == 1){
+				cout<<"-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-"<<endl;
+				//x = insertar(x);
+				cout<<"La guerra se ha guardado exitosamente."<<endl;
+				cout<<"-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-<-"<<endl;
+			}
+		}
 	}while(opcion != 4);
 	return 0;
 }
@@ -75,7 +97,7 @@ int menu(){
 }
 
 int mcd(int a, int b){
-	if(a% b == 0){
+	if(a % b == 0){
 		return b;
 	}else{
 		b = a % b;
@@ -128,8 +150,6 @@ void calculadoraPrimos(int* primos){
 			cout<<"("<<primos[i]<<"^"<<cont<<") * ";
 			cont = 0;
 		}
-		
-		//cont = 0;
         }
 	cout<<cadena<<endl;
 }
@@ -140,3 +160,34 @@ void freeArray(int* array){
 	}
 }
 
+int menu2(){
+	cout<<"                 Menu2"<<endl
+                <<"1.- Insertar"<<endl
+                <<"2.- Buscar"<<endl
+                <<"3.- Eliminar"<<endl
+                <<"4.- Listar"<<endl;
+        cout<< "        Ingrese una opción: ";
+        int opcion;
+        cin>> opcion;
+        cout<<endl;
+        return opcion;
+}
+/*vector<string> insertar(vector<string> x,int num){
+	string codigo,nombre,ainicio,afinal,pais,continente;
+	cout<<"Ingrese el código: ";
+	cin >> codigo;
+	cout<< "Ingrese el nombre: ";
+	cin>> nombre;
+	cout<< "Ingrese el año de inicio: ";
+	cin>> ainicio;
+	cout<<"Ingrese el año que finalizó la guerra: ";
+	cin>> afinal;
+	cout<< "Ingrese los paises que participaron separados por coma: ";
+	cin>> pais;
+	cout<< "Ingrese el continente en donde esta guerra tuve lugar: ";
+	cin>> continente;
+	stringstream cad;
+	cad<<codigo<<';'<<nombre<<';'<<ainicio<<';'<<afinal<<';'<<pais<<';'<<continente;
+	x.push_back(cad);
+	return x;
+}*/
